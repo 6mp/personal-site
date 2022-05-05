@@ -4,16 +4,17 @@ import {useRouter} from "next/router";
 import {useEffect} from "react";
 import AES from 'crypto-js/aes';
 
+/**
+    const ciphertext = AES.encrypt("sss", 'secretPassphrase');
+    console.log(ciphertext.toString())
+**/
+
 const Home = () => {
 
     const {state: usernameValue, bindings: usernameBindings} = useInput("");
     const {state: passwordValue, bindings: passwordBindings} = useInput("");
     const {setToast} = useToasts()
     const router = useRouter()
-
-    useEffect(() => {
-
-    })
 
     const login = async (): Promise<{ success: boolean, content: string }> => {
         const myHeaders = new Headers();
@@ -51,10 +52,6 @@ const Home = () => {
                     <Spacer/>
                     <Grid xs={24} justify={"center"}>
                         <Button width={1.6} onClick={async () => {
-
-                            const ciphertext = AES.encrypt("sss", 'secretPassphrase');
-                            console.log(ciphertext.toString())
-
                             const {success, content} = await login();
 
                             if (!success) {
@@ -84,4 +81,5 @@ const Home = () => {
     );
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default Home

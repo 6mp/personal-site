@@ -9,4 +9,5 @@ const List = () => {
     );
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default List
