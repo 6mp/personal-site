@@ -1,13 +1,6 @@
 import Head from 'next/head'
 import {Button, Grid, Input, Note, Page, Spacer, Text, useInput, useToasts} from '@geist-ui/core'
 import {useRouter} from "next/router";
-import {useEffect} from "react";
-import AES from 'crypto-js/aes';
-
-/**
-    const ciphertext = AES.encrypt("sss", 'secretPassphrase');
-    console.log(ciphertext.toString())
-**/
 
 const Home = () => {
 
@@ -55,14 +48,9 @@ const Home = () => {
                             const {success, content} = await login();
 
                             if (!success) {
-                                setToast({
-                                    text: content,
-                                    type: "error",
-                                });
+                                setToast({text: content, type: "error", delay: 3000});
                             } else {
-                                setToast({
-                                    text: content,
-                                });
+                                setToast({text: content, delay: 3000});
 
                                 sessionStorage.setItem("username", usernameValue);
                                 sessionStorage.setItem("password", passwordValue);
@@ -73,7 +61,8 @@ const Home = () => {
                     </Grid>
                     <Spacer/>
                     <Grid xs={24} justify={"center"}>
-                        <Note style={{textAlign: "center"}}><br/>If you do not have an account one will be made upon login</Note>
+                        <Note style={{textAlign: "center"}}><br/>If you do not have an account one will be made upon
+                            login</Note>
                     </Grid>
                 </Grid.Container>
             </Page>
