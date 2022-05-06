@@ -71,7 +71,7 @@ const List = () => {
     useEffect(() => {
         getItems()
         setLoading(false);
-    }, [getItems])
+    }, [])
 
     if (!todos) return;
     return (
