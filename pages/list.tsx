@@ -12,7 +12,7 @@ interface Todo {
 
 const List = () => {
     const [loading, setLoading] = useState(true);
-    const {state: todoValue, bindings: todoBindings} = useInput("");
+    const {state: todoValue, bindings: todoBindings, setState: setTodoValue} = useInput("");
     const [todos, setTodos] = useState<Todo[]>([])
     const {setToast} = useToasts()
     const router = useRouter()
@@ -40,7 +40,7 @@ const List = () => {
         });
     }
 
-    const uploadItem = async () => {
+    const uploadItem = () => {
         const myHeaders = new Headers();
         myHeaders.append("username", /*"test"*/ sessionStorage.getItem("username")!);
         myHeaders.append("password", /*"test"*/ sessionStorage.getItem("password")!);
@@ -70,6 +70,36 @@ const List = () => {
                 }
             })
         })
+    }
+
+    const deleteItem = (timestamp: string) => {
+        const myHeaders = new Headers();
+        myHeaders.append("username", /*"test"*/ sessionStorage.getItem("username")!);
+        myHeaders.append("password", /*"test"*/ sessionStorage.getItem("password")!);
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+            "task": "",
+            "insert_time": timestamp
+        });
+
+        const requestOptions = {
+            method: 'DELETE',
+            headers: myHeaders,
+            body: raw
+        };
+
+        fetch("http://127.0.0.1:8787/delete_item", requestOptions).then(response =>
+            response.json().then(json => {
+                if (json.success) {
+                    setToast({text: "deleted item", delay: 3000})
+                    getItems()
+                } else {
+                    setToast({text: json.content, type: "error", delay: 3000})
+                    router.push("/")
+                }
+            })
+        );
     }
 
     useEffect(() => {
@@ -108,7 +138,10 @@ const List = () => {
                                         </Grid>
                                         <Spacer/>
                                         <Grid xs={24} justify={"center"}>
-                                            <Button onClick={uploadItem}>Submit</Button>
+                                            <Button onClick={() => {
+                                                uploadItem();
+                                                setTodoValue("");
+                                            }}>Submit</Button>
                                         </Grid>
                                     </Grid.Container>
                                 </Card>
@@ -119,11 +152,13 @@ const List = () => {
                     <Spacer/>
 
                     {todos?.map((item, _) => {
-                       const decryptedText = AES.decrypt(decodeURI(item.task), sessionStorage.getItem("password")!).toString(Utf8);
+                        const decryptedText = AES.decrypt(decodeURI(item.task), sessionStorage.getItem("password")!).toString(Utf8);
                         return (
                             <>
                                 <Grid key={item.task} xs={24} justify={"center"}>
-                                    <Card>{decryptedText}</Card>
+                                    <Card onClick={() => {
+                                        deleteItem(item.insert_time);
+                                    }}>{decryptedText}</Card>
                                 </Grid>
 
                                 <Grid key={item.insert_time} xs={24} justify={"center"}>
