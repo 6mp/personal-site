@@ -3,6 +3,7 @@ import Head from "next/head";
 import {useEffect, useState} from "react";
 import AES from 'crypto-js/aes';
 import Utf8 from 'crypto-js/enc-utf8'
+import {useRouter} from "next/router";
 
 interface Todo {
     task: string,
@@ -14,6 +15,7 @@ const List = () => {
     const {state: todoValue, bindings: todoBindings} = useInput("");
     const [todos, setTodos] = useState<Todo[]>([])
     const {setToast} = useToasts()
+    const router = useRouter()
 
     const getItems = () => {
         const myHeaders = new Headers();
@@ -32,6 +34,7 @@ const List = () => {
                     setToast({text: "fetched items", delay: 3000})
                 } else {
                     setToast({text: json.content, type: "error", delay: 3000})
+                    router.push("/")
                 }
             })
         });
@@ -63,6 +66,7 @@ const List = () => {
                     getItems()
                 } else {
                     setToast({text: json.content, type: "error", delay: 3000})
+                    router.push("/")
                 }
             })
         })
@@ -71,6 +75,7 @@ const List = () => {
     useEffect(() => {
         getItems()
         setLoading(false);
+        // eslint-disable-next-line
     }, [])
 
     if (!todos) return;
@@ -90,7 +95,7 @@ const List = () => {
                     {loading
                         ?
                         <Grid xs={24} justify={"center"}>
-                            <Loading scale={5}>wooow we loading</Loading>
+                            <Loading scale={5}>Loading</Loading>
                         </Grid>
                         :
                         <>
