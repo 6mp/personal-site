@@ -19,7 +19,7 @@ const Home = () => {
             headers: myHeaders,
         };
 
-        const response = await fetch("http://127.0.0.1:8787/login", requestOptions);
+        const response = await fetch("https://senior_project.6mp.workers.dev/login", requestOptions);
         const json = await response.json();
         return {success: json.success, content: json.content}
     }

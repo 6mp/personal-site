@@ -27,7 +27,8 @@ const List = () => {
             headers: myHeaders,
         };
 
-        fetch("http://127.0.0.1:8787/get_items", requestOptions).then(response => {
+        //https://senior_project.6mp.workers.dev
+        fetch("https://senior_project.6mp.workers.dev/get_items", requestOptions).then(response => {
             response.json().then(json => {
                 if (json.success) {
                     setTodos(JSON.parse(json.content));
@@ -59,7 +60,7 @@ const List = () => {
             body: raw
         };
 
-        fetch("http://127.0.0.1:8787/post_item", requestOptions).then(response => {
+        fetch("https://senior_project.6mp.workers.dev/post_item", requestOptions).then(response => {
             response.json().then(json => {
                 if (json.success) {
                     setToast({text: "pushed item", delay: 3000})
@@ -89,7 +90,7 @@ const List = () => {
             body: raw
         };
 
-        fetch("http://127.0.0.1:8787/delete_item", requestOptions).then(response =>
+        fetch("https://senior_project.6mp.workers.dev/delete_item", requestOptions).then(response =>
             response.json().then(json => {
                 if (json.success) {
                     setToast({text: "deleted item", delay: 3000})
