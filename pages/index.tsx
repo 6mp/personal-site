@@ -11,7 +11,7 @@ const Home = () => {
 
     const login = async (): Promise<{ success: boolean, content: string }> => {
         const myHeaders = new Headers();
-        myHeaders.append("username", usernameValue);
+        myHeaders.append("username", usernameValue.toLowerCase());
         myHeaders.append("password", passwordValue);
 
         const requestOptions = {
@@ -52,7 +52,7 @@ const Home = () => {
                             } else {
                                 setToast({text: content, delay: 3000});
 
-                                sessionStorage.setItem("username", usernameValue);
+                                sessionStorage.setItem("username", usernameValue.toLowerCase());
                                 sessionStorage.setItem("password", passwordValue);
 
                                 await router.push("list");
