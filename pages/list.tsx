@@ -1,4 +1,4 @@
-import {Button, Card, Grid, Input, Loading, Page, Spacer, Text, useInput, useTheme, useToasts} from "@geist-ui/core";
+import {Button, Card, Collapse, Grid, Input, Loading, Page, Spacer, Text, useInput, useToasts} from "@geist-ui/core";
 import Head from "next/head";
 import {useCallback, useEffect, useRef, useState} from "react";
 import AES from 'crypto-js/aes';
@@ -196,7 +196,12 @@ const List = () => {
                                 <Card>
                                     <Grid.Container justify={"center"}>
                                         <Grid xs={24} justify={"center"}>
-                                            <Input placeholder={"Enter task here"}
+                                            <Input width={"100%"} placeholder={"Enter title here"}
+                                                   style={{textAlign: "center"}} {...todoTitleBindings}/>
+                                        </Grid>
+                                        <Spacer/>
+                                        <Grid xs={24} justify={"center"}>
+                                            <Input width={"100%"} placeholder={"Enter details here"}
                                                    style={{textAlign: "center"}} {...todoTitleBindings}/>
                                         </Grid>
                                         <Spacer/>
@@ -213,7 +218,6 @@ const List = () => {
                     }
 
                     <Spacer/>
-
                     {todos.map((item, _) => {
                         const decryptedTile = AES.decrypt(decodeURI(item.title), sessionStorage.getItem("password")!).toString(Utf8);
                         return (
