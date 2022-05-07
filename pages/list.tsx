@@ -1,4 +1,4 @@
-import {Button, Card, Grid, Input, Loading, Page, Spacer, Text, useInput, useToasts} from "@geist-ui/core";
+import {Button, Card, Grid, Input, Loading, Page, Spacer, Text, useInput, useTheme, useToasts} from "@geist-ui/core";
 import Head from "next/head";
 import {useCallback, useEffect, useRef, useState} from "react";
 import AES from 'crypto-js/aes';
@@ -7,13 +7,15 @@ import ReactCanvasConfetti from 'react-canvas-confetti';
 import {useRouter} from "next/router";
 
 interface Todo {
-    task: string,
+    title: string,
+    details: string,
     insert_time: string
 }
 
 const List = () => {
     const [loading, setLoading] = useState(true);
-    const {state: todoValue, bindings: todoBindings, setState: setTodoValue} = useInput("");
+    const {state: todoTitleValue, bindings: todoTitleBindings, setState: setTodoTitleValue} = useInput("");
+    const {state: todoDetailValue, bindings: todoDetailBindings, setState: setTodoDetailValue} = useInput("");
     const [todos, setTodos] = useState<Todo[]>([])
     const {setToast} = useToasts()
     const router = useRouter()
@@ -48,10 +50,12 @@ const List = () => {
         myHeaders.append("password", /*"test"*/ sessionStorage.getItem("password")!);
         myHeaders.append("Content-Type", "application/json");
 
-        const encryptedText = AES.encrypt(todoValue, sessionStorage.getItem("password")!).toString();
+        const encryptedTitle = AES.encrypt(todoTitleValue, sessionStorage.getItem("password")!).toString();
+        const encryptedDetails = AES.encrypt(todoDetailValue, sessionStorage.getItem("password")!).toString();
 
         const raw = JSON.stringify({
-            "task": encodeURI(encryptedText),
+            "title": encodeURI(encryptedTitle),
+            "details": encodeURI(encryptedDetails),
             "insert_time": new Date().getTime().toString()
         });
 
@@ -81,7 +85,8 @@ const List = () => {
         myHeaders.append("Content-Type", "application/json");
 
         const raw = JSON.stringify({
-            "task": "",
+            "title": "",
+            "details": "",
             "insert_time": timestamp
         });
 
@@ -165,7 +170,7 @@ const List = () => {
                 <title>To Do List</title>
                 <link rel={"icon"} href={"/favicon.ico"}/>
             </Head>
-            <Page dotBackdrop width={"800px"} padding={0}>
+            <Page dotBackdrop width={"800px"} padding={0} dotSize={"1.5px"}>
                 <ReactCanvasConfetti refConfetti={getInstance} style={{
                     position: "fixed",
                     pointerEvents: "none",
@@ -192,13 +197,13 @@ const List = () => {
                                     <Grid.Container justify={"center"}>
                                         <Grid xs={24} justify={"center"}>
                                             <Input placeholder={"Enter task here"}
-                                                   style={{textAlign: "center"}} {...todoBindings}/>
+                                                   style={{textAlign: "center"}} {...todoTitleBindings}/>
                                         </Grid>
                                         <Spacer/>
                                         <Grid xs={24} justify={"center"}>
                                             <Button onClick={() => {
                                                 uploadItem();
-                                                setTodoValue("");
+                                                setTodoTitleValue("");
                                             }}>Submit</Button>
                                         </Grid>
                                     </Grid.Container>
@@ -209,15 +214,15 @@ const List = () => {
 
                     <Spacer/>
 
-                    {todos?.map((item, _) => {
-                        const decryptedText = AES.decrypt(decodeURI(item.task), sessionStorage.getItem("password")!).toString(Utf8);
+                    {todos.map((item, _) => {
+                        const decryptedTile = AES.decrypt(decodeURI(item.title), sessionStorage.getItem("password")!).toString(Utf8);
                         return (
                             <>
-                                <Grid key={item.task} xs={24} justify={"center"}>
-                                    <Card onClick={() => {
+                                <Grid key={item.title} xs={24} justify={"center"}>
+                                    <Card width={26} style={{textAlign: "center"}} onClick={() => {
                                         deleteItem(item.insert_time);
                                         fire();
-                                    }}>{decryptedText}</Card>
+                                    }}>{decryptedTile}</Card>
                                 </Grid>
 
                                 <Grid key={item.insert_time} xs={24} justify={"center"}>
