@@ -1,8 +1,9 @@
 import {Button, Card, Grid, Input, Loading, Page, Spacer, Text, useInput, useToasts} from "@geist-ui/core";
 import Head from "next/head";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import AES from 'crypto-js/aes';
 import Utf8 from 'crypto-js/enc-utf8'
+import ReactCanvasConfetti from 'react-canvas-confetti';
 import {useRouter} from "next/router";
 
 interface Todo {
@@ -103,6 +104,53 @@ const List = () => {
         );
     }
 
+    //confetti things
+    const refAnimationInstance = useRef(null);
+
+    const getInstance = useCallback((instance) => {
+        refAnimationInstance.current = instance;
+    }, []);
+
+    const makeShot = useCallback((particleRatio, opts) => {
+        refAnimationInstance.current &&
+        // @ts-ignore
+        refAnimationInstance.current({
+            ...opts,
+            colors: ["#A020F0", "#ffffff"],
+            origin: {y: 0.7},
+            particleCount: Math.floor(200 * particleRatio)
+        });
+    }, []);
+
+    const fire = useCallback(() => {
+        makeShot(0.25, {
+            spread: 26,
+            startVelocity: 55
+        });
+
+        makeShot(0.2, {
+            spread: 60
+        });
+
+        makeShot(0.35, {
+            spread: 100,
+            decay: 0.91,
+            scalar: 0.8
+        });
+
+        makeShot(0.1, {
+            spread: 120,
+            startVelocity: 25,
+            decay: 0.92,
+            scalar: 1.2
+        });
+
+        makeShot(0.1, {
+            spread: 120,
+            startVelocity: 45
+        });
+    }, [makeShot]);
+
     useEffect(() => {
         getItems()
         setLoading(false);
@@ -111,12 +159,21 @@ const List = () => {
 
     if (!todos) return;
     return (
+
         <div>
             <Head>
                 <title>To Do List</title>
                 <link rel={"icon"} href={"/favicon.ico"}/>
             </Head>
             <Page dotBackdrop width={"800px"} padding={0}>
+                <ReactCanvasConfetti refConfetti={getInstance} style={{
+                    position: "fixed",
+                    pointerEvents: "none",
+                    width: "100%",
+                    height: "100%",
+                    top: 0,
+                    left: 0
+                }}/>
                 <Grid.Container justify={"center"}>
                     <Grid xs={24} justify={"center"}>
                         <Text style={{textAlign: "center"}} h1>To Do List Senior Project</Text>
@@ -159,6 +216,7 @@ const List = () => {
                                 <Grid key={item.task} xs={24} justify={"center"}>
                                     <Card onClick={() => {
                                         deleteItem(item.insert_time);
+                                        fire();
                                     }}>{decryptedText}</Card>
                                 </Grid>
 
