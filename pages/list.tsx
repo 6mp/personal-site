@@ -1,4 +1,4 @@
-import {Button, Card, Collapse, Grid, Input, Loading, Page, Spacer, Text, useInput, useToasts} from "@geist-ui/core";
+import {Button, Card, Grid, Input, Loading, Page, Spacer, Text, useInput, useToasts} from "@geist-ui/core";
 import Head from "next/head";
 import {useCallback, useEffect, useRef, useState} from "react";
 import AES from 'crypto-js/aes';
@@ -196,17 +196,25 @@ const List = () => {
                                 <Card>
                                     <Grid.Container justify={"center"}>
                                         <Grid xs={24} justify={"center"}>
-                                            <Input width={"100%"} placeholder={"Enter title here"}
+                                            <Input width={"100%"} placeholder={"Enter item here"}
                                                    style={{textAlign: "center"}} {...todoTitleBindings}/>
                                         </Grid>
                                         <Spacer/>
-                                        <Grid xs={24} justify={"center"}>
+      {/*                                  <Grid xs={24} justify={"center"}>
                                             <Input width={"100%"} placeholder={"Enter details here"}
                                                    style={{textAlign: "center"}} {...todoTitleBindings}/>
                                         </Grid>
-                                        <Spacer/>
+                                        <Spacer/>*/}
                                         <Grid xs={24} justify={"center"}>
                                             <Button onClick={() => {
+                                                if (todoTitleValue.length == 0 || todoTitleValue == " ") {
+                                                    setToast({
+                                                        text: "item can not be empty",
+                                                        type: "error",
+                                                        delay: 3000
+                                                    })
+                                                    return;
+                                                }
                                                 uploadItem();
                                                 setTodoTitleValue("");
                                             }}>Submit</Button>
