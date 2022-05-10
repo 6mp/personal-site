@@ -196,15 +196,15 @@ const List = () => {
                                 <Card>
                                     <Grid.Container justify={"center"}>
                                         <Grid xs={24} justify={"center"}>
-                                            <Input width={"100%"} placeholder={"Enter item here"}
+                                            <Input width={"100%"} placeholder={"Enter title here"}
                                                    style={{textAlign: "center"}} {...todoTitleBindings}/>
                                         </Grid>
                                         <Spacer/>
-      {/*                                  <Grid xs={24} justify={"center"}>
+                                        <Grid xs={24} justify={"center"}>
                                             <Input width={"100%"} placeholder={"Enter details here"}
-                                                   style={{textAlign: "center"}} {...todoTitleBindings}/>
+                                                   style={{textAlign: "center"}} {...todoDetailBindings}/>
                                         </Grid>
-                                        <Spacer/>*/}
+                                        <Spacer/>
                                         <Grid xs={24} justify={"center"}>
                                             <Button onClick={() => {
                                                 if (todoTitleValue.length == 0 || todoTitleValue == " ") {
@@ -217,6 +217,7 @@ const List = () => {
                                                 }
                                                 uploadItem();
                                                 setTodoTitleValue("");
+                                                setTodoDetailValue("");
                                             }}>Submit</Button>
                                         </Grid>
                                     </Grid.Container>
@@ -228,13 +229,19 @@ const List = () => {
                     <Spacer/>
                     {todos.map((item, _) => {
                         const decryptedTile = AES.decrypt(decodeURI(item.title), sessionStorage.getItem("password")!).toString(Utf8);
+                        const decryptedDetails = AES.decrypt(decodeURI(item.details), sessionStorage.getItem("password")!).toString(Utf8);
                         return (
                             <>
                                 <Grid key={item.title} xs={24} justify={"center"}>
-                                    <Card width={26} style={{textAlign: "center"}} onClick={() => {
+                                    <Card width={30} style={{textAlign: "center"}} onClick={() => {
                                         deleteItem(item.insert_time);
                                         fire();
-                                    }}>{decryptedTile}</Card>
+                                    }}>{
+                                        <>
+                                            <Text h3>{decryptedTile}</Text>
+                                            <Text h3>{decryptedDetails}</Text>
+                                        </>
+                                    }</Card>
                                 </Grid>
 
                                 <Grid key={item.insert_time} xs={24} justify={"center"}>
