@@ -1,4 +1,4 @@
-import {Button, Card, Grid, Input, Loading, Page, Spacer, Text, useInput, useToasts} from "@geist-ui/core";
+import {Badge, Button, Card, Grid, Input, Loading, Page, Spacer, Tag, Text, useInput, useToasts} from "@geist-ui/core";
 import Head from "next/head";
 import {useCallback, useEffect, useRef, useState} from "react";
 import AES from 'crypto-js/aes';
@@ -35,7 +35,7 @@ const List = () => {
             response.json().then(json => {
                 if (json.success) {
                     setTodos(JSON.parse(json.content));
-                    setToast({text: "fetched items", delay: 3000})
+                    //setToast({text: "fetched items", delay: 3000})
                 } else {
                     setToast({text: json.content, type: "error", delay: 3000})
                     router.push("/")
@@ -68,7 +68,7 @@ const List = () => {
         fetch("https://senior_project.6mp.workers.dev/post_item", requestOptions).then(response => {
             response.json().then(json => {
                 if (json.success) {
-                    setToast({text: "pushed item", delay: 3000})
+                    setToast({text: "pushed item"})
                     getItems()
                 } else {
                     setToast({text: json.content, type: "error", delay: 3000})
@@ -99,7 +99,7 @@ const List = () => {
         fetch("https://senior_project.6mp.workers.dev/delete_item", requestOptions).then(response =>
             response.json().then(json => {
                 if (json.success) {
-                    setToast({text: "deleted item", delay: 3000})
+                    setToast({text: "deleted item"})
                     getItems()
                 } else {
                     setToast({text: json.content, type: "error", delay: 3000})
@@ -238,8 +238,11 @@ const List = () => {
                                         fire();
                                     }}>{
                                         <>
-                                            <Text h3>{decryptedTile}</Text>
-                                            <Text h3>{decryptedDetails}</Text>
+                                            <Badge>Title</Badge>
+                                            <Text>{decryptedTile}</Text>
+                                            {decryptedDetails != "" ? <Badge>Details</Badge> : <></> }
+                                            <Text>{decryptedDetails}</Text>
+                                            <Tag>Added at: {new Date(parseInt(item.insert_time)).toLocaleTimeString()}</Tag>
                                         </>
                                     }</Card>
                                 </Grid>

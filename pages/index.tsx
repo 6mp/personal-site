@@ -50,7 +50,7 @@ const Home = () => {
                             if (!success) {
                                 setToast({text: content, type: "error", delay: 3000});
                             } else {
-                                setToast({text: content, delay: 3000});
+                                setToast({text: content});
 
                                 sessionStorage.setItem("username", usernameValue.toLowerCase());
                                 sessionStorage.setItem("password", passwordValue);
