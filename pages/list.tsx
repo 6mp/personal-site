@@ -1,4 +1,19 @@
-import {Badge, Button, Card, Grid, Input, Loading, Page, Spacer, Tag, Text, useInput, useToasts} from "@geist-ui/core";
+import {
+    Badge,
+    Button,
+    Card,
+    Grid,
+    Input,
+    Loading,
+    Note,
+    Page,
+    Spacer,
+    Tag,
+    Text,
+    Tooltip,
+    useInput,
+    useToasts
+} from "@geist-ui/core";
 import Head from "next/head";
 import {useCallback, useEffect, useRef, useState} from "react";
 import AES from 'crypto-js/aes';
@@ -233,18 +248,21 @@ const List = () => {
                         return (
                             <>
                                 <Grid key={item.title} xs={24} justify={"center"}>
-                                    <Card width={30} style={{textAlign: "center"}} onClick={() => {
-                                        deleteItem(item.insert_time);
-                                        fire();
-                                    }}>{
-                                        <>
-                                            <Badge>Title</Badge>
-                                            <Text>{decryptedTile}</Text>
-                                            {decryptedDetails != "" ? <Badge>Details</Badge> : <></> }
-                                            <Text>{decryptedDetails}</Text>
-                                            <Tag>Added at: {new Date(parseInt(item.insert_time)).toLocaleTimeString()}</Tag>
-                                        </>
-                                    }</Card>
+                                    <Tooltip text={'Click to remove item'}>
+                                        <Card width={30} style={{textAlign: "center"}} onClick={() => {
+                                            deleteItem(item.insert_time);
+                                            fire();
+                                        }}>{
+                                            <>
+                                                <Badge>Title</Badge>
+                                                <Text>{decryptedTile}</Text>
+                                                {decryptedDetails != "" ? <Badge>Details</Badge> : <></>}
+                                                <Text>{decryptedDetails}</Text>
+                                                <Tag>Added
+                                                    at: {new Date(parseInt(item.insert_time)).toLocaleTimeString()}</Tag>
+                                            </>
+                                        }</Card>
+                                    </Tooltip>
                                 </Grid>
 
                                 <Grid key={item.insert_time} xs={24} justify={"center"}>
