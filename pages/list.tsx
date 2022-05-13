@@ -5,7 +5,6 @@ import {
     Grid,
     Input,
     Loading,
-    Note,
     Page,
     Spacer,
     Tag,
@@ -259,7 +258,7 @@ const List = () => {
                                                 {decryptedDetails != "" ? <Badge>Details</Badge> : <></>}
                                                 <Text>{decryptedDetails}</Text>
                                                 <Tag>Added
-                                                    at: {new Date(parseInt(item.insert_time)).toLocaleTimeString()}</Tag>
+                                                    at: {new Date(parseInt(item.insert_time)).toLocaleDateString()}</Tag>
                                             </>
                                         }</Card>
                                     </Tooltip>
