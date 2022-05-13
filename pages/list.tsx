@@ -258,7 +258,7 @@ const List = () => {
                                                 {decryptedDetails != "" ? <Badge>Details</Badge> : <></>}
                                                 <Text>{decryptedDetails}</Text>
                                                 <Tag>Added
-                                                    at: {new Date(parseInt(item.insert_time)).toLocaleDateString()}</Tag>
+                                                    on: {new Date(parseInt(item.insert_time)).toLocaleDateString()}</Tag>
                                             </>
                                         }</Card>
                                     </Tooltip>
