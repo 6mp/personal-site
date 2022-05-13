@@ -210,12 +210,12 @@ const List = () => {
                                 <Card>
                                     <Grid.Container justify={"center"}>
                                         <Grid xs={24} justify={"center"}>
-                                            <Input width={"100%"} placeholder={"Enter title here"}
+                                            <Input width={"100%"} placeholder={"Enter title here (Required)"}
                                                    style={{textAlign: "center"}} {...todoTitleBindings}/>
                                         </Grid>
                                         <Spacer/>
                                         <Grid xs={24} justify={"center"}>
-                                            <Input width={"100%"} placeholder={"Enter details here"}
+                                            <Input width={"100%"} placeholder={"Enter details here (Optional)"}
                                                    style={{textAlign: "center"}} {...todoDetailBindings}/>
                                         </Grid>
                                         <Spacer/>
