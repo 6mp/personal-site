@@ -23,7 +23,7 @@ export default function Home() {
                 <Tabs {...bindings} align={"center"}
                       style={{overflow: "hidden"}} leftSpace={0}>
                     <Tabs.Item label="Home" value="1">
-                        <Page width={"50%"}>
+                        <Page width={"75%"}>
                             <Grid.Container gap={2} justify="space-around">
                                 <Grid xs={24} justify={"center"}><Avatar
                                     src={"images/face.png"} scale={10}></Avatar>
@@ -43,7 +43,7 @@ export default function Home() {
                         </Page>
                     </Tabs.Item>
                     <Tabs.Item label="Assignments" value="2">
-                        <Page width={"50%"}>
+                        <Page width={"75%"}>
                             <Collapse.Group>
                                 <Collapse title="Question A" subtitle="More description about Question A">
                                     <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
