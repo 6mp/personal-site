@@ -1,4 +1,13 @@
-import {Display, Image, Tabs, useTabs} from '@geist-ui/core'
+import {
+    Avatar, Card,
+    Display,
+    Grid,
+    Image,
+    Spacer,
+    Tabs,
+    Text,
+    useTabs
+} from '@geist-ui/core'
 import {useRouter} from "next/router";
 
 const gh = 'https://github.com/geist-org/geist-ui'
@@ -14,9 +23,23 @@ export default function Home() {
                 <Tabs {...bindings} align={"center"}
                       style={{overflow: "hidden"}} leftSpace={0}>
                     <Tabs.Item label="Home" value="1">
-                        <Display shadow
-                                 caption="An open-source design system for building modern websites and applications.">
+                        <Display shadow>
+                            <Grid.Container gap={2} justify="space-around">
+                                <Grid xs={24} justify={"center"}><Avatar
+                                    src={"images/face.png"} scale={10}></Avatar>
+                                </Grid>
+                                <Grid xs={24}
+                                      justify={"center"}><Spacer/></Grid>
+                                <Grid xs={24} justify={"center"}>
+                                    <Card>
+                                        <p>
+                                            Hi, my name is Matt and I am currently a freshman at the University of Maryland studying computer science.
 
+                                            I'm from Howard County, Maryland and in my free time I enjoy playing tennis and
+                                        </p>
+                                    </Card>
+                                </Grid>
+                            </Grid.Container>
                         </Display>
                     </Tabs.Item>
                     <Tabs.Item label="Assignments" value="2"></Tabs.Item>
