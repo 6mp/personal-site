@@ -2,7 +2,7 @@ import {
     Avatar, Card, Collapse,
     Display,
     Grid,
-    Image, Page,
+    Image, Link, Page,
     Spacer,
     Tabs,
     Text,
@@ -33,11 +33,29 @@ export default function Home() {
                                 <Grid xs={24} justify={"center"}>
                                     <Card>
                                         <p>
-                                            Hi, my name is Matt and I am currently a freshman at the University of Maryland studying computer science.
-
-                                             from Howard County, Maryland and in my free time I enjoy playing tennis and
+                                            Hi, my name is Matt and I am currently a freshman at the University of Maryland studying computer science from Howard County Maryland.
+                                            Here at UMD I
                                         </p>
                                     </Card>
+                                </Grid>
+                                <Grid xs={24} justify={"center"}>
+                                    <Grid.Container gap={2} justify="center" height="100px">
+                                        <Grid xs={6}>
+                                            <Link href={"https://scholars.umd.edu/programs/media-self-and-society"}>
+                                                <Image src={"images/mss_sun.png"} width={"280px"} height={"160px"}></Image>
+                                            </Link>
+                                        </Grid>
+                                        <Grid xs={6}>
+                                            <Link href={"https://umd.edu"}>
+                                                <Image src={"images/umd_seal.png"} width={"280px"} height={"160px"}></Image>
+                                            </Link>
+                                        </Grid>
+                                        <Grid xs={6}>
+                                            <Link href={"https://scholars.umd.edu"}>
+                                                <Image src={"images/s_sun.png"} width={"280px"} height={"160px"}></Image>
+                                            </Link>
+                                        </Grid>
+                                    </Grid.Container>
                                 </Grid>
                             </Grid.Container>
                         </Page>
@@ -45,7 +63,7 @@ export default function Home() {
                     <Tabs.Item label="Assignments" value="2">
                         <Page width={"75%"}>
                             <Collapse.Group>
-                                <Collapse title="Question A" subtitle="More description about Question A">
+                                <Collapse title="African American History Museum" subtitle="10/2/22">
                                     <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
