@@ -1,8 +1,8 @@
 import {
-    Avatar, Card,
+    Avatar, Card, Collapse,
     Display,
     Grid,
-    Image,
+    Image, Page,
     Spacer,
     Tabs,
     Text,
@@ -23,7 +23,7 @@ export default function Home() {
                 <Tabs {...bindings} align={"center"}
                       style={{overflow: "hidden"}} leftSpace={0}>
                     <Tabs.Item label="Home" value="1">
-                        <Display shadow>
+                        <Page width={"50%"}>
                             <Grid.Container gap={2} justify="space-around">
                                 <Grid xs={24} justify={"center"}><Avatar
                                     src={"images/face.png"} scale={10}></Avatar>
@@ -35,14 +35,29 @@ export default function Home() {
                                         <p>
                                             Hi, my name is Matt and I am currently a freshman at the University of Maryland studying computer science.
 
-                                            I'm from Howard County, Maryland and in my free time I enjoy playing tennis and
+                                             from Howard County, Maryland and in my free time I enjoy playing tennis and
                                         </p>
                                     </Card>
                                 </Grid>
                             </Grid.Container>
-                        </Display>
+                        </Page>
                     </Tabs.Item>
-                    <Tabs.Item label="Assignments" value="2"></Tabs.Item>
+                    <Tabs.Item label="Assignments" value="2">
+                        <Page width={"50%"}>
+                            <Collapse.Group>
+                                <Collapse title="Question A" subtitle="More description about Question A">
+                                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+                                </Collapse>
+                                <Collapse title="Question B" subtitle={<>More description about <Text b>Question A</Text></>}>
+                                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+                                </Collapse>
+                            </Collapse.Group>
+                        </Page>
+                    </Tabs.Item>
                     <Tabs.Item label="Resume" value="3">
                         <Display shadow caption={"Click to download pdf"}
                                  onClick={() => window.open("matthewpallan.pdf")}>
