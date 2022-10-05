@@ -72,26 +72,26 @@ export default function Home() {
                                                     alignContent={"center"}
                                                     height="100px">
                                         <Grid xs={24}>
-                                            <Spacer height={10}></Spacer>
+                                            <Spacer h={4}></Spacer>
                                         </Grid>
-                                        <Grid xs={6}>
+                                        <Grid xs={6} justify={"center"} alignContent={"center"} alignItems={"center"}>
                                             <Link
                                                 href={"https://scholars.umd.edu/programs/media-self-and-society"}>
                                                 <Image
-                                                    src={"images/mss_sun.png"}></Image>
+                                                    src={"images/mss_sun.png"} width={"auto"} height={"250px"}></Image>
                                             </Link>
                                         </Grid>
-                                        <Grid xs={6}>
+                                        <Grid xs={6} justify={"center"} alignContent={"center"} alignItems={"center"}>
                                             <Link href={"https://umd.edu"}>
                                                 <Image
-                                                    src={"images/umd_seal.png"}></Image>
+                                                    src={"images/umd_seal.png"} width={"auto"} height={"250px"}></Image>
                                             </Link>
                                         </Grid>
-                                        <Grid xs={6}>
+                                        <Grid xs={6} justify={"center"} alignContent={"center"} alignItems={"center"}>
                                             <Link
                                                 href={"https://scholars.umd.edu"}>
                                                 <Image
-                                                    src={"images/s_sun.png"}></Image>
+                                                    src={"images/s_sun.png"} width={"auto"} height={"250px"}></Image>
                                             </Link>
                                         </Grid>
                                     </Grid.Container>
