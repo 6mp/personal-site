@@ -29,7 +29,8 @@ export default function Home() {
                                     src={"images/face.png"} scale={10}></Avatar>
                                 </Grid>
                                 <Grid xs={24}
-                                      justify={"center"}><Spacer/></Grid>
+                                      justify={"center"}><Spacer/>
+                                </Grid>
                                 <Grid xs={24} justify={"center"}>
                                     <Card>
                                         <p>
@@ -38,21 +39,28 @@ export default function Home() {
                                         </p>
                                     </Card>
                                 </Grid>
+                                <Grid xs={24}
+                                      justify={"center"}>
+                                    <Spacer/>
+                                </Grid>
                                 <Grid xs={24} justify={"center"}>
-                                    <Grid.Container gap={2} justify="center" height="100px">
+                                    <Grid.Container gap={2} justify={"center"} alignItems={"center"} alignContent={"center"} height="100px">
+                                        <Grid xs={24}>
+                                         <Spacer height={10}></Spacer>
+                                        </Grid>
                                         <Grid xs={6}>
                                             <Link href={"https://scholars.umd.edu/programs/media-self-and-society"}>
-                                                <Image src={"images/mss_sun.png"} width={"280px"} height={"160px"}></Image>
+                                                <Image src={"images/mss_sun.png"}></Image>
                                             </Link>
                                         </Grid>
                                         <Grid xs={6}>
                                             <Link href={"https://umd.edu"}>
-                                                <Image src={"images/umd_seal.png"} width={"280px"} height={"160px"}></Image>
+                                                <Image src={"images/umd_seal.png"}></Image>
                                             </Link>
                                         </Grid>
                                         <Grid xs={6}>
                                             <Link href={"https://scholars.umd.edu"}>
-                                                <Image src={"images/s_sun.png"} width={"280px"} height={"160px"}></Image>
+                                                <Image src={"images/s_sun.png"}></Image>
                                             </Link>
                                         </Grid>
                                     </Grid.Container>
