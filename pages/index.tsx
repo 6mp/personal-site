@@ -124,7 +124,7 @@ export default function Home() {
                         </Page>
                     </Tabs.Item>
                     <Tabs.Item label="Resume" value="3">
-                        <Display shadow caption={"Click to download pdf"}
+                        <Display shadow caption={"Click on image to download pdf"}
                                  onClick={() => window.open("matthewpallan.pdf")}>
                             <Image src="images/resume_preview.png"/>
                         </Display>
