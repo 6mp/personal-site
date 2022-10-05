@@ -15,12 +15,8 @@ import {
 import {useRouter} from "next/router";
 import AAMuseum from "./assignments/aa_museum";
 
-const gh = 'https://github.com/geist-org/geist-ui'
-const docs = 'https://geist-ui.dev'
-
 export default function Home() {
     const {bindings} = useTabs('1');
-    const router = useRouter()
 
     return (
         <>
