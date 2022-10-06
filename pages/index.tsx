@@ -21,6 +21,7 @@ export default function Home() {
     return (
         <>
             <head>
+                <title>E-Portfolio</title>
                 <meta name="EPortfolio" content="Matthew Pallan EPortfolio"> </meta>
             </head>
 
