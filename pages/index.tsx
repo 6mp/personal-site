@@ -20,6 +20,10 @@ export default function Home() {
 
     return (
         <>
+            <head>
+                <meta name="EPortfolio" content="Matthew Pallan EPortfolio"> </meta>
+            </head>
+
             <div className="tabs">
                 <Tabs {...bindings} align={"center"}
                       style={{overflow: "hidden"}} leftSpace={0}>
