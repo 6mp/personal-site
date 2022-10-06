@@ -12,7 +12,6 @@ import {
     Text,
     useTabs
 } from '@geist-ui/core'
-import {useRouter} from "next/router";
 import AAMuseum from "./assignments/aa_museum";
 
 export default function Home() {
@@ -22,7 +21,8 @@ export default function Home() {
         <>
             <head>
                 <title>E-Portfolio</title>
-                <meta name="EPortfolio" content="Matthew Pallan EPortfolio"> </meta>
+                <meta name="EPortfolio"
+                      content="Matthew Pallan EPortfolio"></meta>
             </head>
 
             <div className="tabs">
@@ -41,7 +41,8 @@ export default function Home() {
                                     <Text style={{textAlign: "center"}} h6>
                                         mtp@umd.edu
                                         <br></br>
-                                        Computer Science Major
+                                        <Link href={"https://www.cs.umd.edu"}>Computer
+                                            Science Major</Link>
                                         <br></br>
                                         Media Scholar
                                     </Text>
@@ -79,24 +80,36 @@ export default function Home() {
                                         <Grid xs={24}>
                                             <Spacer h={4}></Spacer>
                                         </Grid>
-                                        <Grid xs={6} justify={"center"} alignContent={"center"} alignItems={"center"}>
+                                        <Grid xs={6} justify={"center"}
+                                              alignContent={"center"}
+                                              alignItems={"center"}>
                                             <Link
                                                 href={"https://scholars.umd.edu/programs/media-self-and-society"}>
                                                 <Image
-                                                    src={"images/mss_sun.png"} width={"auto"} height={"250px"}></Image>
+                                                    src={"images/mss_sun.png"}
+                                                    width={"auto"}
+                                                    height={"250px"}></Image>
                                             </Link>
                                         </Grid>
-                                        <Grid xs={6} justify={"center"} alignContent={"center"} alignItems={"center"}>
+                                        <Grid xs={6} justify={"center"}
+                                              alignContent={"center"}
+                                              alignItems={"center"}>
                                             <Link href={"https://umd.edu"}>
                                                 <Image
-                                                    src={"images/umd_seal.png"} width={"auto"} height={"250px"}></Image>
+                                                    src={"images/umd_seal.png"}
+                                                    width={"auto"}
+                                                    height={"250px"}></Image>
                                             </Link>
                                         </Grid>
-                                        <Grid xs={6} justify={"center"} alignContent={"center"} alignItems={"center"}>
+                                        <Grid xs={6} justify={"center"}
+                                              alignContent={"center"}
+                                              alignItems={"center"}>
                                             <Link
                                                 href={"https://scholars.umd.edu"}>
                                                 <Image
-                                                    src={"images/s_sun.png"} width={"auto"} height={"250px"}></Image>
+                                                    src={"images/s_sun.png"}
+                                                    width={"auto"}
+                                                    height={"250px"}></Image>
                                             </Link>
                                         </Grid>
                                     </Grid.Container>
@@ -129,7 +142,8 @@ export default function Home() {
                         </Page>
                     </Tabs.Item>
                     <Tabs.Item label="Resume" value="3">
-                        <Display shadow caption={"Click on image to download pdf"}
+                        <Display shadow
+                                 caption={"Click on image to download pdf"}
                                  onClick={() => window.open("matthewpallan.pdf")}>
                             <Image src="images/resume_preview.png"/>
                         </Display>
