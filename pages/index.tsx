@@ -17,9 +17,8 @@ import {useRouter} from "next/router";
 
 
 export default function Home() {
-    const router = useRouter();
-    const { pid } = router.query
-    console.log(pid != null ? pid.toString() : "null")
+    const {query} = useRouter();
+    console.log(query != null ? query : "null")
     const {bindings} = useTabs('1');
 
     return (
@@ -90,11 +89,15 @@ export default function Home() {
                                             deeper into this connection and
                                             learn more about how media is
                                             involved in every single thing we
-                                            do.
+                                            do. I look forward to what UMD has
+                                            in store for me and I am excited to
+                                            meet many more people and partake in
+                                            new activities!
 
 
                                             <br></br>
-
+                                            <br></br>
+                                            <b>10/7/22</b>
                                         </p>
                                     </Card>
                                 </Grid>
