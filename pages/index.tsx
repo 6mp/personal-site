@@ -13,8 +13,13 @@ import {
     useTabs
 } from '@geist-ui/core'
 import AAMuseum from "./assignments/aa_museum";
+import {useRouter} from "next/router";
+
 
 export default function Home() {
+    const router = useRouter();
+    const { pid } = router.query
+    console.log(pid != null ? pid.toString() : "null")
     const {bindings} = useTabs('1');
 
     return (
@@ -39,7 +44,8 @@ export default function Home() {
                                 </Grid>
                                 <Grid xs={24} justify={"center"}>
                                     <Text style={{textAlign: "center"}} h6>
-                                        mtp@umd.edu
+                                        <Link
+                                            href={"mailto:mtp@umd.edu"}>mtp@umd.edu</Link>
                                         <br></br>
                                         <Link href={"https://www.cs.umd.edu"}>Computer
                                             Science Major</Link>
@@ -54,17 +60,41 @@ export default function Home() {
                                             currently a freshman at the
                                             University of Maryland studying
                                             computer science from Howard County
-                                            Maryland.
-                                            In high school I was involved with
-                                            tennis, the business and investing
-                                            club, and CyberPatriot. One thing I
-                                            saw that connected all of these in
-                                            one way or another was media. Here
-                                            at UMD in the Media Scholars I want
-                                            to dive deeper into this connection
-                                            and learn more about how media is
+                                            Maryland. In high school I was
+                                            involved with tennis, the business
+                                            and investing club, and
+                                            CyberPatriot.
+
+                                            The business and investing club was
+                                            a great way to expose myself to the
+                                            different types of media and their
+                                            effects on us. We talked about share
+                                            price, market trends, macro analysis
+                                            and news. The news we discussed
+                                            tended to follow business related
+                                            topics so it helped me understand
+                                            that even if you are not in the
+                                            market for stocks or running your
+                                            own business you will probably still
+                                            hear about it. It even
+                                            helped me help my parents make
+                                            decisions on buying something or
+                                            selling stocks with it as well.
+
+                                            Whether it be market news, news of a
+                                            hack of some company, or news of
+                                            someone winning a tennis
+                                            championship media was involved in
+                                            every single one. Here at UMD in
+                                            the Media Scholars I want to dive
+                                            deeper into this connection and
+                                            learn more about how media is
                                             involved in every single thing we
                                             do.
+
+
+                                            <br></br>
+
                                         </p>
                                     </Card>
                                 </Grid>
