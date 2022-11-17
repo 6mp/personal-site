@@ -14,12 +14,28 @@ import {
 } from '@geist-ui/core'
 import AAMuseum from "./assignments/aa_museum";
 import {useRouter} from "next/router";
+import {useEffect, useState} from "react";
+import ESportsRoom from "./assignments/esports_room";
 
 
 export default function Home() {
-    const {query} = useRouter();
-    console.log(query != null ? query : "null")
-    const {bindings} = useTabs('1');
+
+    const router = useRouter();
+    let [curTab, setTab] = useState<string>("1")
+
+    const {bindings} = useTabs(curTab);
+
+    useEffect(() => {
+        // get query params
+        const {query} = router;
+        if (query.tab) {
+            let number_tab = parseInt(query.tab as string);
+            if (number_tab > 0 && number_tab < 4) {
+                setTab(number_tab.toString());
+            }
+        }
+    }, [router, bindings])
+
 
     return (
         <>
@@ -153,24 +169,15 @@ export default function Home() {
                     <Tabs.Item label="Assignments" value="2">
                         <Page width={"75%"}>
                             <Collapse.Group>
+                                <Collapse title={"UMD E-Sports Room Photo Essay"}
+                                          subtitle={"11/11/22"}>
+                                    <ESportsRoom/>
+                                </Collapse>
                                 <Collapse
                                     title={"African American History Museum Photo Essay"}
                                     subtitle={"10/2/22"}>
                                     <AAMuseum/>
                                 </Collapse>
-                                {/*<Collapse title="Question B"*/}
-                                {/*          subtitle={<>More description*/}
-                                {/*              about <Text b>Question*/}
-                                {/*                  A</Text></>}>*/}
-                                {/*    <Text>Lorem ipsum dolor sit amet,*/}
-                                {/*        consectetur adipiscing elit,*/}
-                                {/*        sed do eiusmod tempor incididunt ut*/}
-                                {/*        labore et dolore magna aliqua. Ut enim*/}
-                                {/*        ad minim veniam,*/}
-                                {/*        quis nostrud exercitation ullamco*/}
-                                {/*        laboris nisi ut aliquip ex ea commodo*/}
-                                {/*        consequat.</Text>*/}
-                                {/*</Collapse>*/}
                             </Collapse.Group>
                         </Page>
                     </Tabs.Item>
