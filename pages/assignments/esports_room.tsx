@@ -4,22 +4,21 @@ export default function ESportsRoom() {
     return (
         <>
             <Display shadow
-                     caption="This was an exhibit at the museum dedicated to the many different kinds of music black artists have made.
-                     I liked this exhibit because I enjoy music and it was interesting to see all the different artists and the genres they made music in.">
+                     caption="This is the outside of the E-sports room on the third floor of Knight Hall. This is a temporary room, there are plans of expanding into another building soon.">
                 <Image height={"700px"}
-                       src="images/assignments/aa_museum/music_room.jpg"/>
+                       src="images/assignments/esports_room/outside.jpg"/>
             </Display>
 
             <Display shadow
-                     caption="This piece was a replica of NASA's Mercury spacecraft constructed from the platform President Obama gave his 2009 inauguration speech on. I found this to be a wonderful repurposing of the old inauguration podium and it really spoke to me.">
+                     caption="This is Nathan Stevens, he was responsible for getting this whole thing setup over the course of just a semester. Before coming to UMD he also did E-sports at the University of Kentucky..">
                 <Image height={"700px"}
-                       src="images/assignments/aa_museum/platform.jpg"/>
+                       src="images/assignments/esports_room/nathan_stevens.jpg"/>
             </Display>
 
             <Display shadow
-                     caption="This quilt of Harriet Tubman really stood out to me because of the intricate detail. I have seen how other quilts are made so I know a lot of time goes into those and they were no where near as complex as this one. ">
+                     caption="This is one of the computers in the E-sports room, there are a total of 5 computers. Each of the computers has a RTX 3090 (One of the most powerful graphics cards)! The E-sports team is also sponsored by Hyper-X, a computer peripheral brand. ">
                 <Image height={"700px"}
-                       src="images/assignments/aa_museum/tubman_quilt.jpg"/>
+                       src="images/assignments/esports_room/pc.jpg"/>
             </Display>
         </>
 

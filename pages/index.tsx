@@ -169,7 +169,7 @@ export default function Home() {
                     <Tabs.Item label="Assignments" value="2">
                         <Page width={"75%"}>
                             <Collapse.Group>
-                                <Collapse title={"UMD E-Sports Room Photo Essay"}
+                                <Collapse title={"UMD E-Sports Room Photo Essay (Media Connects)"}
                                           subtitle={"11/11/22"}>
                                     <ESportsRoom/>
                                 </Collapse>
