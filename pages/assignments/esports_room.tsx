@@ -1,8 +1,14 @@
-import {Display, Image} from "@geist-ui/core";
+import {Card, Display, Image, Text} from "@geist-ui/core";
 
 export default function ESportsRoom() {
     return (
         <>
+            <Card>
+                <Text style={{textAlign: "center"}}>
+                    I recently had the privilege of visiting the E-Sports room here at UMD for a Media Connects event. I learned a lot about the many different teams UMD has, how their schedules work, and also how this program ties into the school of journalism.
+                </Text>
+            </Card>
+
             <Display shadow
                      caption="This is the outside of the E-sports room on the third floor of Knight Hall. This is a temporary room, there are plans of expanding into another building soon.">
                 <Image height={"700px"}

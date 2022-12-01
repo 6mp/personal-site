@@ -137,7 +137,7 @@ export default function Home() {
                                                 <Image
                                                     src={"images/mss_sun.png"}
                                                     width={"auto"}
-                                                    height={"250px"}></Image>
+                                                    height={"125px"}></Image>
                                             </Link>
                                         </Grid>
                                         <Grid xs={6} justify={"center"}
@@ -147,7 +147,7 @@ export default function Home() {
                                                 <Image
                                                     src={"images/umd_seal.png"}
                                                     width={"auto"}
-                                                    height={"250px"}></Image>
+                                                    height={"125px"}></Image>
                                             </Link>
                                         </Grid>
                                         <Grid xs={6} justify={"center"}
@@ -158,7 +158,7 @@ export default function Home() {
                                                 <Image
                                                     src={"images/s_sun.png"}
                                                     width={"auto"}
-                                                    height={"250px"}></Image>
+                                                    height={"125px"}></Image>
                                             </Link>
                                         </Grid>
                                     </Grid.Container>
