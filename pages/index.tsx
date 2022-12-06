@@ -16,6 +16,7 @@ import AAMuseum from "./assignments/aa_museum";
 import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import ESportsRoom from "./assignments/esports_room";
+import SemOneRefl from "./assignments/sem_one_refl";
 
 
 export default function Home() {
@@ -169,6 +170,11 @@ export default function Home() {
                     <Tabs.Item label="Assignments" value="2">
                         <Page width={"75%"}>
                             <Collapse.Group>
+                                <Collapse
+                                    title={"Semester One Reflection"}
+                                    subtitle={"12/8/22"}>
+                                    <SemOneRefl/>
+                                </Collapse>
                                 <Collapse title={"UMD E-Sports Room Photo Essay (Media Connects)"}
                                           subtitle={"11/11/22"}>
                                     <ESportsRoom/>

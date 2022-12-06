@@ -27,7 +27,5 @@ export default function ESportsRoom() {
                        src="images/assignments/esports_room/pc.jpg"/>
             </Display>
         </>
-
-
     );
 }

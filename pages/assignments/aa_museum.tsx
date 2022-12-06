@@ -22,7 +22,5 @@ export default function AAMuseum() {
                        src="images/assignments/aa_museum/tubman_quilt.jpg"/>
             </Display>
         </>
-
-
     );
 }
