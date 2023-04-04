@@ -17,6 +17,7 @@ import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
 import ESportsRoom from "./assignments/esports_room";
 import SemOneRefl from "./assignments/sem_one_refl";
+import Project from "./assignments/project";
 
 
 export default function Home() {
@@ -170,6 +171,11 @@ export default function Home() {
                     <Tabs.Item label="Assignments" value="2">
                         <Page width={"75%"}>
                             <Collapse.Group>
+                                <Collapse
+                                    title={"Comparing Content Recommendation Systems: Mid-Semester Research Project"}
+                                    subtitle={"4/4/23"}>
+                                    <Project/>
+                                </Collapse>
                                 <Collapse
                                     title={"Semester One Reflection"}
                                     subtitle={"12/8/22"}>
