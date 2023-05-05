@@ -18,6 +18,7 @@ import {useEffect, useState} from "react";
 import ESportsRoom from "./assignments/esports_room";
 import SemOneRefl from "./assignments/sem_one_refl";
 import Project from "./assignments/project";
+import Assange from "./assignments/assange";
 
 
 export default function Home() {
@@ -171,6 +172,11 @@ export default function Home() {
                     <Tabs.Item label="Assignments" value="2">
                         <Page width={"75%"}>
                             <Collapse.Group>
+                                <Collapse
+                                    title={"Ithaka Movie Screening (Media Connects)"}
+                                    subtitle={"5/5/23"}>
+                                    <Assange/>
+                                </Collapse>
                                 <Collapse
                                     title={"Comparing Content Recommendation Systems: Mid-Semester Research Project"}
                                     subtitle={"4/4/23"}>
