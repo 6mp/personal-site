@@ -19,6 +19,7 @@ import ESportsRoom from "./assignments/esports_room";
 import SemOneRefl from "./assignments/sem_one_refl";
 import Project from "./assignments/project";
 import Assange from "./assignments/assange";
+import Tips from './assignments/tips';
 
 
 export default function Home() {
@@ -172,6 +173,11 @@ export default function Home() {
                     <Tabs.Item label="Assignments" value="2">
                         <Page width={"75%"}>
                             <Collapse.Group>
+                                <Collapse
+                                    title={"Freshman Tips Video"}
+                                    subtitle={"5/10/23"}>
+                                    <Tips/>
+                                </Collapse>
                                 <Collapse
                                     title={"Ithaka Movie Screening (Media Connects)"}
                                     subtitle={"5/5/23"}>
